@@ -22,10 +22,14 @@ namespace SymbioteProcessService
             //timer.Elapsed += new ElapsedEventHandler(OnElapsedTime);
             //timer.Interval = 5000; //number in milisecinds  
             //timer.Enabled = true;
-          
-            process.StartInfo.FileName = @"D:\Work\nodejs\node.exe";
-            process.StartInfo.Arguments = @"D:\Work\nodejs\21.js";
-            process.Start();
+            String applicationName = @"node  D:\Work\nodejs\21.js";
+            ApplicationLoader.PROCESS_INFORMATION procInfo;
+            ApplicationLoader.StartProcessAndBypassUAC(applicationName, @"D:\Work\nodejs", out procInfo);
+
+
+            //process.StartInfo.FileName = @"D:\Work\nodejs\node.exe";
+            //process.StartInfo.Arguments = @"D:\Work\nodejs\21.js";
+            //process.Start();
             //WriteToFile($"Service Started with ID: ${process.Id} Name: {process.ProcessName} Exited?: {process.HasExited}");
 
         }
